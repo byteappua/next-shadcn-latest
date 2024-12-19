@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   DatafeedConfiguration,
   HistoryCallback,
@@ -15,7 +16,6 @@ import {
   Mark,
   IExternalDatafeed,
   IDatafeedChartApi,
-  DOMCallback,
   OnReadyCallback,
   IExternalSaveLoadAdapter,
   ChartData,
@@ -30,14 +30,11 @@ import {
   IDatafeedQuotesApi,
   QuotesCallback,
   QuotesErrorCallback,
-  IBasicDataFeed,
   SearchSymbolResultItem,
   Bar,
 } from "@/public/charting_library";
 // import { subscribeOnStream, unsubscribeFromStream } from "./streaming";
-import { v4 as uuidv4 } from "uuid";
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const lastBarsCache = new Map<string, any>();
+// const lastBarsCache = new Map<string, any>();
 const configurationData: DatafeedConfiguration = {
   supported_resolutions: [
     "IT" as ResolutionString,
@@ -242,7 +239,7 @@ export class CustomDataFeed implements IDatafeedChartApi, IExternalDatafeed, IDa
       onResult([], { noData: true });
       return;
     }
-    let bars: Bar[] = [
+    const bars: Bar[] = [
       {
         time: 1717778616000,
         open: 47.08,
