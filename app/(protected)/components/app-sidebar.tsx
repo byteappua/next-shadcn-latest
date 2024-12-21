@@ -34,6 +34,11 @@ const items = [
     url: "#",
     icon: Home,
   },
+  {
+    title: "tv",
+    url: "/tradingview",
+    icon: Home,
+  },
 ];
 const examples = [
   {
