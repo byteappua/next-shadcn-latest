@@ -1,104 +1,136 @@
 "use client";
-
 import { ColumnDef } from "@tanstack/react-table";
-
-import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
-
-import { labels, priorities, statuses } from "../data/data";
-import { Task } from "../data/schema";
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
+import { Task } from "../data/schema";
 
 export const columns: ColumnDef<Task>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-        className="translate-y-[2px]"
-      />
-    ),
+    accessorKey: "交易所", // Contract Code
+    header: ({ column }) => <DataTableColumnHeader column={column} title="交易所" />,
+    cell: ({ row }) => <div className="w-[80px]">{row.getValue("交易所")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "合约代码", // Contract Code
+    header: ({ column }) => <DataTableColumnHeader column={column} title="合约代码" />,
+    cell: ({ row }) => <div className="w-[80px]">{row.getValue("合约代码")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "合约名称", // Contract Name
+    header: ({ column }) => <DataTableColumnHeader column={column} title="合约名称" />,
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-        className="translate-y-[2px]"
-      />
+      <div className="max-w-[350px] flex-1 truncate font-medium">{row.getValue("合约名称")}</div>
     ),
-    enableSorting: false,
+    enableSorting: true,
     enableHiding: false,
   },
   {
-    accessorKey: "id",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Task" />,
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
-    enableSorting: false,
+    accessorKey: "品种代码", // Variety Name
+    header: ({ column }) => <DataTableColumnHeader column={column} title="品种代码" />,
+    cell: ({ row }) => <div>{row.getValue("品种代码")}</div>,
+    enableSorting: true,
     enableHiding: false,
   },
   {
-    accessorKey: "title",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Title" />,
-    cell: ({ row }) => {
-      const label = labels.find((label) => label.value === row.original.label);
-
-      return (
-        <div className="flex flex-row">
-          {label && <Badge variant="outline">{label.label}</Badge>}
-          <span className="max-w-[350px] flex-1 truncate font-medium">{row.getValue("title")}</span>
-        </div>
-      );
-    },
+    accessorKey: "品种名称", // Variety Name
+    header: ({ column }) => <DataTableColumnHeader column={column} title="品种名称" />,
+    cell: ({ row }) => <div>{row.getValue("品种名称")}</div>,
+    enableSorting: true,
+    enableHiding: false,
   },
   {
-    accessorKey: "status",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Status" />,
-    cell: ({ row }) => {
-      const status = statuses.find((status) => status.value === row.getValue("status"));
-
-      if (!status) {
-        return null;
-      }
-
-      return (
-        <div className="flex w-[100px] items-center">
-          {status.icon && <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
-          <span>{status.label}</span>
-        </div>
-      );
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
-    },
+    accessorKey: "合约乘数", // Latest Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="合约乘数" />,
+    cell: ({ row }) => <div>{row.getValue("合约乘数")}</div>,
+    enableSorting: true,
+    enableHiding: false,
   },
   {
-    accessorKey: "priority",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Priority" />,
-    cell: ({ row }) => {
-      const priority = priorities.find((priority) => priority.value === row.getValue("priority"));
-
-      if (!priority) {
-        return null;
-      }
-
-      return (
-        <div className="flex items-center">
-          {priority.icon && <priority.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
-          <span>{priority.label}</span>
-        </div>
-      );
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
-    },
+    accessorKey: "最小跳动", // Latest Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="最小跳动" />,
+    cell: ({ row }) => <div>{row.getValue("最小跳动")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "开仓费率（按金额）", // Latest Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="开仓费率（按金额）" />,
+    cell: ({ row }) => <div>{row.getValue("开仓费率（按金额）")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "开仓费用（按手）", // Trading Volume
+    header: ({ column }) => <DataTableColumnHeader column={column} title="开仓费用（按手）" />,
+    cell: ({ row }) => <div>{row.getValue("开仓费用（按手）")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "平仓费率（按金额）", // Trading Volume
+    header: ({ column }) => <DataTableColumnHeader column={column} title="平仓费率（按金额）" />,
+    cell: ({ row }) => <div>{row.getValue("平仓费率（按金额）")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "平仓费用（按手）", // Trading Volume
+    header: ({ column }) => <DataTableColumnHeader column={column} title="平仓费用（按手）" />,
+    cell: ({ row }) => <div>{row.getValue("平仓费用（按手）")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "成交量", // Trading Volume
+    header: ({ column }) => <DataTableColumnHeader column={column} title="成交量" />,
+    cell: ({ row }) => <div>{row.getValue("成交量")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "持仓量", // Open Interest
+    header: ({ column }) => <DataTableColumnHeader column={column} title="持仓量" />,
+    cell: ({ row }) => <div>{row.getValue("持仓量")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "上日结算价", // Previous Settlement Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="上日结算价" />,
+    cell: ({ row }) => <div>{row.getValue("上日结算价")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "上日收盘价", // Previous Closing Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="上日收盘价" />,
+    cell: ({ row }) => <div>{row.getValue("上日收盘价")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "1手开仓费用", // Opening Cost for 1 Lot
+    header: ({ column }) => <DataTableColumnHeader column={column} title="1手开仓费用" />,
+    cell: ({ row }) => <div>{row.getValue("1手开仓费用")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "1手平仓费用", // Closing Cost for 1 Lot
+    header: ({ column }) => <DataTableColumnHeader column={column} title="1手平仓费用" />,
+    cell: ({ row }) => <div>{row.getValue("1手平仓费用")}</div>,
+    enableSorting: true,
+    enableHiding: false,
   },
   {
     id: "actions",
     cell: ({ row }) => <DataTableRowActions row={row} />,
+    enableSorting: false,
+    enableHiding: false,
   },
 ];

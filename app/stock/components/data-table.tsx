@@ -30,6 +30,7 @@ import { DataTableToolbar } from "./data-table-toolbar";
 import { Suspense } from "react";
 import { DataTableBody } from "./data-table-body";
 
+import axios from "axios";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -40,7 +41,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [read, setRead] = React.useState<boolean>(false);
+  const [read, setRead] = React.useState<boolean>(true);
 
   const table = useReactTable({
     data,
