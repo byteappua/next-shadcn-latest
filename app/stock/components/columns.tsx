@@ -86,16 +86,9 @@ export const columns: ColumnDef<Task>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "成交量", // Trading Volume
-    header: ({ column }) => <DataTableColumnHeader column={column} title="成交量" />,
-    cell: ({ row }) => <div>{row.getValue("成交量")}</div>,
-    enableSorting: true,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "持仓量", // Open Interest
-    header: ({ column }) => <DataTableColumnHeader column={column} title="持仓量" />,
-    cell: ({ row }) => <div>{row.getValue("持仓量")}</div>,
+    accessorKey: "平今费率（按金额）", // Trading Volume
+    header: ({ column }) => <DataTableColumnHeader column={column} title="平今费率（按金额）" />,
+    cell: ({ row }) => <div>{row.getValue("平今费率（按金额）")}</div>,
     enableSorting: true,
     enableHiding: false,
   },
@@ -114,6 +107,27 @@ export const columns: ColumnDef<Task>[] = [
     enableHiding: false,
   },
   {
+    accessorKey: "最新价", // Previous Closing Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="最新价" />,
+    cell: ({ row }) => <div>{row.getValue("最新价")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "成交量", // Previous Closing Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="成交量" />,
+    cell: ({ row }) => <div>{row.getValue("成交量")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "持仓量", // Previous Closing Price
+    header: ({ column }) => <DataTableColumnHeader column={column} title="持仓量" />,
+    cell: ({ row }) => <div>{row.getValue("持仓量")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
     accessorKey: "1手开仓费用", // Opening Cost for 1 Lot
     header: ({ column }) => <DataTableColumnHeader column={column} title="1手开仓费用" />,
     cell: ({ row }) => <div>{row.getValue("1手开仓费用")}</div>,
@@ -124,6 +138,20 @@ export const columns: ColumnDef<Task>[] = [
     accessorKey: "1手平仓费用", // Closing Cost for 1 Lot
     header: ({ column }) => <DataTableColumnHeader column={column} title="1手平仓费用" />,
     cell: ({ row }) => <div>{row.getValue("1手平仓费用")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "2Tick平今收益率%", // Closing Cost for 1 Lot
+    header: ({ column }) => <DataTableColumnHeader column={column} title="2Tick平今收益率%" />,
+    cell: ({ row }) => <div>{row.getValue("2Tick平今收益率%")}</div>,
+    enableSorting: true,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "更新时间", // Closing Cost for 1 Lot
+    header: ({ column }) => <DataTableColumnHeader column={column} title="更新时间" />,
+    cell: ({ row }) => <div>{row.getValue("更新时间")}</div>,
     enableSorting: true,
     enableHiding: false,
   },
