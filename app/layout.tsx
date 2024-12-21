@@ -28,7 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen`}>
-        <SidebarProvider>
+        <SidebarProvider
+          style={
+            {
+              "--sidebar-width": "10rem",
+              "--sidebar-width-icon": "10rem",
+            } as React.CSSProperties
+          }
+        >
           <AppSidebar />
           <SidebarInset>{children} </SidebarInset>
         </SidebarProvider>
