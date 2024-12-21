@@ -3,7 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -29,15 +29,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen`}>
         <SidebarProvider
-          style={
-            {
-              "--sidebar-width": "10rem",
-              "--sidebar-width-icon": "10rem",
-            } as React.CSSProperties
-          }
+          style={{
+            "--sidebar-width": "6rem",
+          }}
         >
           <AppSidebar />
-          <SidebarInset>{children} </SidebarInset>
+          <SidebarInset>
+            <header className="flex h-16 shrink-0 items-center gap-2 px-4">
+              <SidebarTrigger />
+            </header>
+            {children}
+          </SidebarInset>
         </SidebarProvider>
       </body>
     </html>

@@ -59,7 +59,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             {data.routers?.map((subItem) => (
               <SidebarMenuItem key={subItem.name}>
                 <SidebarMenuSubButton asChild>
-                  <Link href={subItem.url}>{subItem.name}</Link>
+                  <Link href={subItem.url}>
+                    {subItem.icon && <subItem.icon />}
+                    {subItem.name}
+                  </Link>
                 </SidebarMenuSubButton>
               </SidebarMenuItem>
             ))}
