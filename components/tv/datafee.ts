@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   DatafeedConfiguration,
   HistoryCallback,
@@ -167,7 +166,6 @@ export class CustomDataFeed implements IDatafeedChartApi, IExternalDatafeed, IDa
       // 处理获取到的数据
       console.log("数据:", data);
       if (data) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         data.forEach((item: any) => {
           symbols.push({
             symbol: item.code,
