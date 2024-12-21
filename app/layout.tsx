@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { PgliteProvider } from "@/components/pglite-provider";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -28,19 +29,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen`}>
-        <SidebarProvider
-          style={{
-            "--sidebar-width": "6rem",
-          }}
-        >
-          <AppSidebar />
-          <SidebarInset>
-            <header className="flex h-16 shrink-0 items-center gap-2 px-4">
-              <SidebarTrigger />
-            </header>
-            {children}
-          </SidebarInset>
-        </SidebarProvider>
+        <PgliteProvider>
+          <SidebarProvider
+            style={{
+              "--sidebar-width": "6rem",
+            }}
+          >
+            <AppSidebar />
+            <SidebarInset>
+              <header className="flex h-16 shrink-0 items-center gap-2 px-4">
+                <SidebarTrigger />
+              </header>
+              {children}
+            </SidebarInset>
+          </SidebarProvider>
+        </PgliteProvider>
       </body>
     </html>
   );
