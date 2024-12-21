@@ -4,6 +4,7 @@ import * as React from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
+  ColumnPinningState,
   SortingState,
   VisibilityState,
   flexRender,
@@ -42,17 +43,23 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [read, setRead] = React.useState<boolean>(true);
-
+  const [columnPinning, setColumnPinning] = React.useState<ColumnPinningState>({
+    left: [],
+    right: [],
+  });
   const table = useReactTable({
     data,
     columns,
     state: {
       sorting,
       columnVisibility,
+      columnPinning,
       rowSelection,
       columnFilters,
     },
     enableRowSelection: true,
+    enableColumnPinning: true,
+    onColumnPinningChange: setColumnPinning,
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,

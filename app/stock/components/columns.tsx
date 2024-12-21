@@ -12,6 +12,7 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => <div className="w-[80px]">{row.getValue("交易所")}</div>,
     enableSorting: true,
     enableHiding: false,
+    enablePinning: true,
   },
   {
     accessorKey: "合约代码", // Contract Code
