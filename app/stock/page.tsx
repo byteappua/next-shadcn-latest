@@ -11,11 +11,16 @@ export const metadata: Metadata = {
 
 // Simulate a database read for tasks.
 async function getTasks() {
-  const response = await fetch("http://127.0.0.1:8000/ak/futures_fees_info", {
-    headers: { Accept: "application/json" },
-  });
-  const data = await response.json();
-  return z.array(taskSchema).parse(data);
+  try {
+    const response = await fetch("http://127.0.0.1:8000/ak/futures_fees_info", {
+      headers: { Accept: "application/json" },
+    });
+    const data = await response.json();
+    return z.array(taskSchema).parse(data);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    return [];
+  }
 }
 
 export default async function TaskPage() {
@@ -23,9 +28,7 @@ export default async function TaskPage() {
 
   return (
     <>
-      <div className=" h-full  flex-col flex w-full">
-        <DataTable data={tasks} columns={columns} />
-      </div>
+      <DataTable data={tasks} columns={columns} />
     </>
   );
 }

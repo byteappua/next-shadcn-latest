@@ -28,19 +28,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-screen`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-dvh w-dvw`}>
         <PgliteProvider>
           <SidebarProvider
             style={{
               "--sidebar-width": "6rem",
             }}
+            className="flex flex-row"
           >
             <AppSidebar />
-            <SidebarInset>
+            <SidebarInset className="flex-1 flex flex-col">
               <header className="flex h-4 shrink-0 items-center gap-2 ">
                 <SidebarTrigger />
               </header>
-              {children}
+              <div className="flex-1">{children}</div>
             </SidebarInset>
           </SidebarProvider>
         </PgliteProvider>

@@ -74,9 +74,9 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className=" flex-1 w-full">
+      <div className="flex flex-col h-full  w-full">
         <DataTableToolbar table={table} />
-        <div className="rounded-md border">
+        <div className="flex-1 rounded-md border max-w-full overflow-x-auto">
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
