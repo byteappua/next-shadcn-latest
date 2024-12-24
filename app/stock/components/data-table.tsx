@@ -47,7 +47,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     left: [],
     right: [],
   });
-  const getCommonPinningStyles = (column: Column<Stock>): CSSProperties => {
+  const getCommonPinningStyles = (column: Column<TData>): CSSProperties => {
     const isPinned = column.getIsPinned();
     const isLastLeftPinnedColumn = isPinned === "left" && column.getIsLastColumn("left");
     const isFirstRightPinnedColumn = isPinned === "right" && column.getIsFirstColumn("right");
