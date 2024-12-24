@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import {
+  Column,
   ColumnDef,
   ColumnFiltersState,
   ColumnPinningState,
@@ -28,10 +29,11 @@ import {
 
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableToolbar } from "./data-table-toolbar";
-import { Suspense } from "react";
+import { CSSProperties, Suspense } from "react";
 import { DataTableBody } from "./data-table-body";
 
 import axios from "axios";
+import { Task } from "../data/schema";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -47,6 +49,25 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     left: [],
     right: [],
   });
+  const getCommonPinningStyles = (column: Column<Task>): CSSProperties => {
+    const isPinned = column.getIsPinned();
+    const isLastLeftPinnedColumn = isPinned === "left" && column.getIsLastColumn("left");
+    const isFirstRightPinnedColumn = isPinned === "right" && column.getIsFirstColumn("right");
+
+    return {
+      boxShadow: isLastLeftPinnedColumn
+        ? "-4px 0 4px -4px gray inset"
+        : isFirstRightPinnedColumn
+        ? "4px 0 4px -4px gray inset"
+        : undefined,
+      left: isPinned === "left" ? `${column.getStart("left")}px` : undefined,
+      right: isPinned === "right" ? `${column.getAfter("right")}px` : undefined,
+      opacity: isPinned ? 0.95 : 1,
+      position: isPinned ? "sticky" : "relative",
+      width: column.getSize(),
+      zIndex: isPinned ? 1 : 0,
+    };
+  };
   const table = useReactTable({
     data,
     columns,
