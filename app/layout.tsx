@@ -34,14 +34,14 @@ export default function RootLayout({
             style={{
               "--sidebar-width": "6rem",
             }}
-            className="flex flex-row"
+            className="flex flex-row w-full h-full"
           >
             <AppSidebar />
-            <SidebarInset className="flex-1 flex flex-col">
+            <SidebarInset className="flex-1 flex flex-col h-full">
               <header className="flex h-4 shrink-0 items-center gap-2 ">
                 <SidebarTrigger />
               </header>
-              <div className="flex-1">{children}</div>
+              <div className="flex-1 w-full">{children}</div>
             </SidebarInset>
           </SidebarProvider>
         </PgliteProvider>
