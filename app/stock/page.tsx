@@ -18,7 +18,6 @@ async function getTasks() {
     const data = await response.json();
     return z.array(taskSchema).parse(data);
   } catch (error) {
-    console.error("Error fetching tasks:", error);
     return [];
   }
 }
