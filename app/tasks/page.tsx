@@ -31,17 +31,6 @@ export default async function TaskPage() {
   return (
     <>
       <div className=" h-full  flex-col flex w-full">
-        <div className="flex items-center justify-between ">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
-            <p className="text-muted-foreground">
-              Here&apos;s a list of your tasks for this month!
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <UserNav />
-          </div>
-        </div>
         <DataTable data={tasks} columns={columns} />
       </div>
     </>

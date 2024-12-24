@@ -28,20 +28,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-dvh w-dvw`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full w-full`}>
         <PgliteProvider>
           <SidebarProvider
-            style={{
-              "--sidebar-width": "6rem",
-            }}
-            className="flex flex-row w-full h-full"
+            style={
+              {
+                "--sidebar-width": "6rem",
+              } as React.CSSProperties
+            }
+            className="flex flex-row max-w-full "
           >
             <AppSidebar />
-            <SidebarInset className="flex-1 flex flex-col h-full">
+            <SidebarInset className="flex-1 flex flex-col h-full overflow-hidden">
               <header className="flex h-4 shrink-0 items-center gap-2 ">
                 <SidebarTrigger />
               </header>
-              <div className="flex-1 w-full">{children}</div>
+              <div className="flex-1">{children}</div>
             </SidebarInset>
           </SidebarProvider>
         </PgliteProvider>
