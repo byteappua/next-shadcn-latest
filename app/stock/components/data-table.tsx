@@ -30,10 +30,7 @@ import {
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableToolbar } from "./data-table-toolbar";
 import { CSSProperties, Suspense } from "react";
-import { DataTableBody } from "./data-table-body";
 
-import axios from "axios";
-import { Task } from "../data/schema";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -49,7 +46,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     left: [],
     right: [],
   });
-  const getCommonPinningStyles = (column: Column<Task>): CSSProperties => {
+  const getCommonPinningStyles = (column: Column<TData, TValue>): CSSProperties => {
     const isPinned = column.getIsPinned();
     const isLastLeftPinnedColumn = isPinned === "left" && column.getIsLastColumn("left");
     const isFirstRightPinnedColumn = isPinned === "right" && column.getIsFirstColumn("right");
@@ -107,7 +104,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     return (
                       <TableHead
                         key={header.id}
-                        colSpan={header.colSpan} //IMPORTANT: This is where the magic happens!
+                        colSpan={header.colSpan}
                         style={{ ...getCommonPinningStyles(column) }}
                       >
                         <div className="whitespace-nowrap">
