@@ -3,9 +3,9 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
-import { Task } from "../data/schema";
+import { Stock } from "../data/schema";
 
-export const columns: ColumnDef<Task>[] = [
+export const columns: ColumnDef<Stock>[] = [
   {
     accessorKey: "交易所", // Contract Code
     header: ({ column }) => <DataTableColumnHeader column={column} title="交易所" />,

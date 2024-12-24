@@ -43,4 +43,4 @@ export const taskSchema = z.object({
 });
 
 // Define the type based on the new schema
-export type Task = z.infer<typeof taskSchema>;
+export type Stock = z.infer<typeof taskSchema>;
