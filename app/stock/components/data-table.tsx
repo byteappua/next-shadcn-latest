@@ -96,7 +96,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
       <div className="flex flex-col h-full  w-full">
         <DataTableToolbar table={table} />
         <div className="flex-1 rounded-md border max-w-full overflow-x-auto">
-          <Table>
+          <Table className="table-fixed">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
