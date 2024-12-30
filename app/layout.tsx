@@ -36,7 +36,7 @@ export default function RootLayout({
                 "--sidebar-width": "6rem",
               } as React.CSSProperties
             }
-            className="flex flex-row "
+            className="flex flex-row h-dvh"
           >
             <AppSidebar />
             <SidebarInset className="flex-1 flex flex-col h-full overflow-hidden">
