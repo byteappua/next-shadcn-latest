@@ -92,8 +92,8 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   });
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className="flex flex-col h-full  w-full">
+    <>
+      <Suspense fallback={<div>Loading...</div>}>
         <DataTableToolbar table={table} />
         <div className="flex-1 rounded-md border max-w-full overflow-x-auto">
           <Table className="table-fixed">
@@ -188,7 +188,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
           </Table>
         </div>
         <DataTablePagination table={table} />
-      </div>
-    </Suspense>
+      </Suspense>
+    </>
   );
 }

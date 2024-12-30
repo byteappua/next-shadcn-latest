@@ -83,7 +83,7 @@ export const TVChartContainer = (props: Partial<TradingTerminalWidgetOptions>) =
   }, [props]);
   return (
     <>
-      <div ref={chartContainerRef} className="h-full w-full"></div>
+      <div ref={chartContainerRef} className="h-full"></div>
     </>
   );
 };

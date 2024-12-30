@@ -27,7 +27,9 @@ export default async function TaskPage() {
 
   return (
     <>
-      <DataTable data={tasks} columns={columns} />
+      <div className="flex-1 flex flex-col">
+        <DataTable data={tasks} columns={columns} />
+      </div>
     </>
   );
 }

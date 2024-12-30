@@ -30,7 +30,7 @@ export default async function TaskPage() {
 
   return (
     <>
-      <div className=" h-full  flex-col flex w-full">
+      <div className="flex-1 flex flex-col">
         <DataTable data={tasks} columns={columns} />
       </div>
     </>

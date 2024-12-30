@@ -36,14 +36,12 @@ export default function RootLayout({
                 "--sidebar-width": "6rem",
               } as React.CSSProperties
             }
-            className="flex flex-row max-w-full "
+            className="flex flex-row "
           >
             <AppSidebar />
             <SidebarInset className="flex-1 flex flex-col h-full overflow-hidden">
-              <header className="flex h-4 shrink-0 items-center gap-2 ">
-                <SidebarTrigger />
-              </header>
-              <div className="flex-1">{children}</div>
+              <SidebarTrigger />
+              <div className="flex-1 flex flex-col">{children}</div>
             </SidebarInset>
           </SidebarProvider>
         </PgliteProvider>
