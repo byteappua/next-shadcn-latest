@@ -5,7 +5,7 @@ import {
   LanguageCode,
   ResolutionString,
   widget,
-} from "@/types/charting_library";
+} from "@/public/charting_library";
 import { CustomDataFeed, CustomSaveLoadAdapter } from "./datafee";
 //引入tradingview 编译后的代码 仅供学习 授权请去官网
 //注释class Ti extends jt.CustomSourceBase下的render可以去掉图标
