@@ -31,7 +31,7 @@ import {
   QuotesErrorCallback,
   SearchSymbolResultItem,
   Bar,
-} from "@/public/charting_library";
+} from "@/types/charting_library";
 // import { subscribeOnStream, unsubscribeFromStream } from "./streaming";
 // const lastBarsCache = new Map<string, any>();
 const configurationData: DatafeedConfiguration = {
