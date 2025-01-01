@@ -33,12 +33,17 @@ const data = {
     {
       name: "tasks",
       url: "/tasks",
-      icon: PieChart,
+      // icon: PieChart,
     },
     {
       name: "stock",
       url: "/stock",
-      icon: PieChart,
+      // icon: PieChart,
+    },
+    {
+      name: "trading",
+      url: "/trading",
+      // icon: PieChart,
     },
   ],
 };
