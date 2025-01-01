@@ -93,102 +93,105 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <DataTableToolbar table={table} />
-        <div className="flex-1 rounded-md border max-w-full overflow-x-auto">
-          <Table className="table-fixed">
-            <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => {
-                    const { column } = header;
-                    return (
-                      <TableHead
-                        key={header.id}
-                        colSpan={header.colSpan}
-                        style={{ ...getCommonPinningStyles(column) }}
-                      >
-                        <div className="whitespace-nowrap">
-                          {header.isPlaceholder
-                            ? null
-                            : flexRender(header.column.columnDef.header, header.getContext())}
-                        </div>
-                        {!header.isPlaceholder && header.column.getCanPin() && (
-                          <div className="flex gap-1 justify-between">
-                            {header.column.getIsPinned() !== "left" ? (
-                              <button
-                                className="border rounded px-2"
-                                onClick={() => {
-                                  header.column.pin("left");
-                                }}
-                              >
-                                {"<="}
-                              </button>
-                            ) : null}
-                            {header.column.getIsPinned() ? (
-                              <button
-                                className="border rounded px-2"
-                                onClick={() => {
-                                  header.column.pin(false);
-                                }}
-                              >
-                                X
-                              </button>
-                            ) : null}
-                            {header.column.getIsPinned() !== "right" ? (
-                              <button
-                                className="border rounded px-2"
-                                onClick={() => {
-                                  header.column.pin("right");
-                                }}
-                              >
-                                {"=>"}
-                              </button>
-                            ) : null}
-                          </div>
-                        )}
-                        <div
-                          {...{
-                            onDoubleClick: () => header.column.resetSize(),
-                            onMouseDown: header.getResizeHandler(),
-                            onTouchStart: header.getResizeHandler(),
-                            className: `resizer ${
-                              header.column.getIsResizing() ? "isResizing" : ""
-                            }`,
-                          }}
-                        />
-                      </TableHead>
-                    );
-                  })}
-                </TableRow>
-              ))}
-            </TableHeader>
-            <TableBody>
-              {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row) => (
-                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
-                    {row.getVisibleCells().map((cell) => {
-                      const { column } = cell;
+      {" "}
+      <div className="flex-1 flex flex-col">
+        <Suspense fallback={<div>Loading...</div>}>
+          <DataTableToolbar table={table} />
+          <div className="flex-1 rounded-md border max-w-full overflow-x-auto">
+            <Table className="table-fixed">
+              <TableHeader>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <TableRow key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => {
+                      const { column } = header;
                       return (
-                        <TableCell key={cell.id} style={{ ...getCommonPinningStyles(column) }}>
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </TableCell>
+                        <TableHead
+                          key={header.id}
+                          colSpan={header.colSpan}
+                          style={{ ...getCommonPinningStyles(column) }}
+                        >
+                          <div className="whitespace-nowrap">
+                            {header.isPlaceholder
+                              ? null
+                              : flexRender(header.column.columnDef.header, header.getContext())}
+                          </div>
+                          {!header.isPlaceholder && header.column.getCanPin() && (
+                            <div className="flex gap-1 justify-between">
+                              {header.column.getIsPinned() !== "left" ? (
+                                <button
+                                  className="border rounded px-2"
+                                  onClick={() => {
+                                    header.column.pin("left");
+                                  }}
+                                >
+                                  {"<="}
+                                </button>
+                              ) : null}
+                              {header.column.getIsPinned() ? (
+                                <button
+                                  className="border rounded px-2"
+                                  onClick={() => {
+                                    header.column.pin(false);
+                                  }}
+                                >
+                                  X
+                                </button>
+                              ) : null}
+                              {header.column.getIsPinned() !== "right" ? (
+                                <button
+                                  className="border rounded px-2"
+                                  onClick={() => {
+                                    header.column.pin("right");
+                                  }}
+                                >
+                                  {"=>"}
+                                </button>
+                              ) : null}
+                            </div>
+                          )}
+                          <div
+                            {...{
+                              onDoubleClick: () => header.column.resetSize(),
+                              onMouseDown: header.getResizeHandler(),
+                              onTouchStart: header.getResizeHandler(),
+                              className: `resizer ${
+                                header.column.getIsResizing() ? "isResizing" : ""
+                              }`,
+                            }}
+                          />
+                        </TableHead>
                       );
                     })}
                   </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results.
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </div>
-        <DataTablePagination table={table} />
-      </Suspense>
+                ))}
+              </TableHeader>
+              <TableBody>
+                {table.getRowModel().rows?.length ? (
+                  table.getRowModel().rows.map((row) => (
+                    <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                      {row.getVisibleCells().map((cell) => {
+                        const { column } = cell;
+                        return (
+                          <TableCell key={cell.id} style={{ ...getCommonPinningStyles(column) }}>
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={columns.length} className="h-24 text-center">
+                      No results.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
+          <DataTablePagination table={table} />
+        </Suspense>
+      </div>
     </>
   );
 }
