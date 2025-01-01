@@ -68,9 +68,9 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   }, []);
   return (
     <>
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col w-full">
         <DataTableToolbar table={table} />
-        <div className="flex-1 rounded-md border" ref={tableContainer}>
+        <div className="flex-1 rounded-md border " ref={tableContainer}>
           <div style={{ height: `${tableContainerHeight}px` } as React.CSSProperties}>
             <Table parentDiv="h-full" className="table-fixed">
               <TableHeader>
