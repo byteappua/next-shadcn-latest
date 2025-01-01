@@ -12,10 +12,11 @@ export const metadata: Metadata = {
 // Simulate a database read for tasks.
 async function getTasks() {
   try {
-    const response = await fetch("http://127.0.0.1:8000/ak/futures_fees_info", {
+    const response = await fetch(process.env.PYTHON_BACK + "/ak/futures_fees_info", {
       headers: { Accept: "application/json" },
     });
     const data = await response.json();
+    console.log(response.url);
     return z.array(taskSchema).parse(data);
   } catch (error) {
     return [];
