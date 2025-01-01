@@ -21,7 +21,7 @@ export function DataTableColumnHeader<TData, TValue>({
   title,
   className,
 }: DataTableColumnHeaderProps<TData, TValue>) {
-  if (!column.getCanSort()) {
+  if (!column.getCanSort() && !column.getCanPin) {
     return <div className={cn(className)}>{title}</div>;
   }
 
@@ -54,6 +54,9 @@ export function DataTableColumnHeader<TData, TValue>({
             <EyeNoneIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
             Hide
           </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={() => column.pin("left")}>pinLeft</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => column.pin("right")}>pinRight</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
