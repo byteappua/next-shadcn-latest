@@ -6,3 +6,41 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
 marketId=1&attribute1=5&exponentTypeId=2&cateId=2&attribute2=%E5%8D%8E%E5%8C%97&city=&startLine=&endLine=
+
+###
+POST https://ai.proj.us.kg/gemini/v1/chat/completions
+Content-Type: application/json
+Authorization: 1102weng
+
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You're an assistant"
+    },
+    {
+      "role": "user",
+      "content": "Hi"
+    }
+  ],
+  
+  "model": "gemini-1.5-flash"
+}
+###
+POST http://localhost:3000/xai/v1/chat/completions
+Content-Type: application/json
+Authorization: 1102weng
+
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You're an assistant"
+    },
+    {
+      "role": "user",
+      "content": "Hi"
+    }
+  ],
+  "model": "grok-2-latest"
+}
