@@ -19,6 +19,7 @@ async function getTasks() {
     console.log(response.url);
     return z.array(taskSchema).parse(data);
   } catch (error) {
+    console.log(error);
     return [];
   }
 }
