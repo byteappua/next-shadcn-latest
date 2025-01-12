@@ -18,6 +18,7 @@
     extensions = [
       "donjayamanne.githistory"
       "mhutchie.git-graph"
+      "esbenp.prettier-vscode"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
