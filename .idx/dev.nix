@@ -29,6 +29,7 @@
       };
       onStart = {
         pnpm-install = "pnpm add -g pnpm && pnpm install";
+        run-server = "pnpm run dev"; 
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
