@@ -1,0 +1,7 @@
+version: "3"
+services:
+  tunnel:
+    image: cloudflare/cloudflared
+    restart: always
+    command: tunnel --no-autoupdate run --token eyJhIjoiYjAwMTg4YTA3YzFkNzM3OGZhZjgyNDMxOWRhODJjMzEiLCJ0IjoiZWJiMjMxZDItZjUyNy00M2RjLWFiNDUtMjdkMTJjZTg1YjAzIiwicyI6Ill6STJNamczTXpndE0ySTFaUzAwTVROaUxXSXlOR0V0TmpkaE56Y3pOalpoT0dGaCJ9
+    network_mode: host
