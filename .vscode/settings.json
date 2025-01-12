@@ -1,7 +1,9 @@
 {
-  "marscode.chatLanguage": "cn",
-  "marscode.codeCompletionPro": {
-    "enableCodeCompletionPro": true
-  },
-  "marscode.enableInlineCommand": true
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true,
+    "marscode.chatLanguage": "cn",
+    "marscode.codeCompletionPro": {
+      "enableCodeCompletionPro": true
+    },
+    "marscode.enableInlineCommand": true
 }
