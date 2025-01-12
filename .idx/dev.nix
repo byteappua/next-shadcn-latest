@@ -21,12 +21,15 @@
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        pnpm-install = "pnpm setup && pnpm add -g pnpm && pnpm install";
+        pnpm-install = "pnpm setup";
        # Open editors for the following files by default, if they exist:
         default.openFiles = [
           # Cover all the variations of language, src-dir, router (app/pages)
           "app/page.jsx"
         ];
+      };
+      onStart = {
+        pnpm-install = "pnpm add -g pnpm && pnpm install";
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
