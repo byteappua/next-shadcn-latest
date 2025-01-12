@@ -31,7 +31,7 @@
       };
       onStart = {
         pnpm-install = "pnpm add -g pnpm && pnpm install && pnpm run dev";
-        docker="docker-compose -f docker-compose.yaml up -d ";
+        # docker="docker-compose -f docker-compose.yaml up -d ";
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
