@@ -8,7 +8,8 @@
     pkgs.nodejs_20
     pkgs.nodePackages.pnpm
     pkgs.bun
-    pkgs.dpkg
+    pkgs.nettools
+    pkgs.docker pkgs.docker-compose
   ];
   # Sets environment variables in the workspace
   env = {};
@@ -29,8 +30,8 @@
         ];
       };
       onStart = {
-        pnpm-install = "pnpm add -g pnpm && pnpm install";
-        run-server = "pnpm run dev"; 
+        pnpm-install = "pnpm add -g pnpm && pnpm install && pnpm run dev";
+        docker="docker-compose -f docker-compose.yaml up -d ";
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
@@ -45,4 +46,5 @@
       };
     };
   };
+  services.docker.enable = true;
 }
