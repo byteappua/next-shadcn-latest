@@ -8,14 +8,12 @@
     pkgs.nodejs_20
     pkgs.nodePackages.pnpm
     pkgs.bun
-    pkgs.vercel-pkg
   ];
   # Sets environment variables in the workspace
   env = {};
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
-      # "vscodevim.vim"
       "donjayamanne.githistory"
       "mhutchie.git-graph"
     ];
