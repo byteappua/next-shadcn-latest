@@ -1,0 +1,1 @@
+cd .. && cd py-trader && poetry run python main.py
