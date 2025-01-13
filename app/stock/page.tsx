@@ -15,6 +15,8 @@ async function getTasks() {
     const response = await fetch(process.env.PYTHON_BACK + "/ak/futures_fees_info", {
       headers: { Accept: "application/json" },
     });
+
+    console.log(response.url);
     const data = await response.json();
     console.log(response.url);
     return z.array(taskSchema).parse(data);
