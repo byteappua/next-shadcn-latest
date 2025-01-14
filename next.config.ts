@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*).(jpg|jpeg|png|gif|ico|svg|webp|css|js)", // 匹配静态文件路径
+        source: "/(.*).(jpg|jpeg|png|gif|ico|svg|webp|css|js|woff)", // 匹配静态文件路径
         headers: [
           {
             key: "Cache-Control",
