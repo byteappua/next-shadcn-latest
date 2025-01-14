@@ -4,19 +4,19 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: false,
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  async headers() {
-    return [
-      {
-        source: "/(.*).(jpg|jpeg|png|gif|ico|svg|webp|css|js|woff)", // 匹配静态文件路径
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable", // 缓存 1 年，并标记为不可变
-          },
-        ],
-      },
-    ];
-  },
+  // async headers() {
+  //   return [
+  //     {
+  //       source: "/(.*).(jpg|jpeg|png|gif|ico|svg|webp|css|js|woff)", // 匹配静态文件路径
+  //       headers: [
+  //         {
+  //           key: "Cache-Control",
+  //           value: "public, max-age=31536000, immutable", // 缓存 1 年，并标记为不可变
+  //         },
+  //       ],
+  //     },
+  //   ];
+  // },
 };
 
 const withMDX = createMDX({
