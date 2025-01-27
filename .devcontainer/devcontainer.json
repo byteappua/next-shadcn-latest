@@ -1,6 +1,9 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
+    "node": {
+      "version": "20.18.1" // 指定 Node.js 版本
+    }
   },
-  "onCreateCommand": "npm install -g pnpm && pnpm i"
+  "onCreateCommand": "npm install -g pnpm"
 }
