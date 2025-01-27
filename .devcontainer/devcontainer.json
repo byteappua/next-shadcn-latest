@@ -3,10 +3,10 @@
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20.18.1"
-    }, 
-    "ghcr.io/devcontainers/features/postgres:1": {
-      "version": "15"
-     }
+    },
+    "ghcr.io/itsmechlark/features/postgresql": {
+      "version": "16"
+    }
   },
   "forwardPorts": [3000,5432],
   "portsAttributes": {
