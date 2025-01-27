@@ -1,9 +1,10 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "node": {
+    "ghcr.io/devcontainers/features/node:1": {
       "version": "20.18.1" // 指定 Node.js 版本
     }
   },
-  "onCreateCommand": "npm install -g pnpm"
+  "updateContentCommand": "pnpm install",
+  "postCreateCommand": "pnpm install"
 }
