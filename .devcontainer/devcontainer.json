@@ -2,13 +2,20 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "20.18.1" 
-    }
+      "version": "20.18.1"
+    }, 
+    "ghcr.io/devcontainers/features/postgres:1": {
+      "version": "15"
+     }
   },
-  "forwardPorts": [3000],
+  "forwardPorts": [3000,5432],
   "portsAttributes": {
     "3000": {
       "label": "app-standard-preview",
+      "visibility": "public"
+    },
+    "5432": {
+      "label": "postgresql",
       "visibility": "public"
     }
   },
