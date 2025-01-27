@@ -13,6 +13,6 @@
     }
   },
   "updateContentCommand": "pnpm install",
-  "postCreateCommand": "pnpm install && cp .env.example .env.local && ./get_codespace_url.sh",
+  "postCreateCommand": "pnpm install && cp .env.example .env.local",
   "postStartCommand":" cd public && git clone https://gitlab.in.hxr.com/nekocode/charting_library.git charting_git && mv charting_git/charting_library charting_library"
 }
