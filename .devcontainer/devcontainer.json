@@ -14,5 +14,5 @@
   },
   "updateContentCommand": "pnpm install",
   "postCreateCommand": "pnpm install",
-  "postStartCommand":"cd public && git clone https://gitlab.in.hxr.com/nekocode/charting_library.git charting_git && mv charting_git/charting_library charting_library"
+  "postStartCommand":"cp .env.example .env.local && cd public && git clone https://gitlab.in.hxr.com/nekocode/charting_library.git charting_git && mv charting_git/charting_library charting_library"
 }
