@@ -40,3 +40,4 @@ yarn-error.log*
 *.tsbuildinfo
 /public/charting_library
 /public/charting_git
+public/charting_git
