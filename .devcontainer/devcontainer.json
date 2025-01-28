@@ -9,7 +9,8 @@
   "portsAttributes": {
     "3000": {
       "label": "app-standard-preview",
-      "visibility": "public"
+      "visibility": "public",
+      "requireLocalPort": true
     }
   },
   "updateContentCommand": "pnpm install",
